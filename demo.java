@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 public class demo {
-	public static int[][] maze;  //ÃÔ¹¬¾ØÕó
-	public static int n;  //¾ØÕó´óÐ¡
-	public static int min;  //×î¶Ì×Ü²½³¤
+	public static int[][] maze;  //è¿·å®«çŸ©é˜µ
+	public static int n;  //çŸ©é˜µå¤§å°
+	public static int min;  //æœ€çŸ­æ€»æ­¥é•¿
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -15,7 +15,7 @@ public class demo {
 				maze[i][j] = sc.nextInt();
 			}
 		}
-		bool_maze(1,1,0);  //Æðµã
+		bool_maze(1,1,0);  //èµ·ç‚¹
 		if(min==0) {
 			System.out.println("no solution");
 		}else {
@@ -23,25 +23,25 @@ public class demo {
 		}
 	}
 	
-	public static void bool_maze(int a,int b,int count) {
-		if(a==n-2 && b==n-2) {
-			min = Math.min(min, count);  //ÒÑ¾­µ½´ïÖÕµã£¬
+	public static void bool_maze(int x,int y,int count) {
+		if(x==n-2 && y==n-2) {
+			min = Math.min(min, count);  //å·²ç»åˆ°è¾¾ç»ˆç‚¹ï¼Œ
 		}else {
-			maze[a][b] = 1;  //×ß¹ýµÄÎ»ÖÃ²»ÄÜÖØ¸´×ß£¬¹Ê¶ø×ß¹ý¾ÍÉèÎª1£¨ÕÏ°­Îï£©
-			if(a>1 && maze[a-1][b]==0) {
-				bool_maze(a-1, b, count+1);  //ÉÏ
+			maze[x][y] = 1;  //èµ°è¿‡çš„ä½ç½®ä¸èƒ½é‡å¤èµ°ï¼Œæ•…è€Œèµ°è¿‡å°±è®¾ä¸º1ï¼ˆéšœç¢ç‰©ï¼‰
+			if(x>1 && maze[x-1][y]==0) {
+				bool_maze(x-1, y, count+1);  //ä¸Š
 			}
-			if(a<n-1 && maze[a+1][b]==0) {
-				bool_maze(a+1, b, count+1);  //ÏÂ
+			if(x<n-1 && maze[x+1][y]==0) {
+				bool_maze(x+1, y, count+1);  //ä¸‹
 			}
-			if(b>1 && maze[a][b-1]==0) {
-				bool_maze(a, b-1, count+1);  //×ó
+			if(y>1 && maze[x][y-1]==0) {
+				bool_maze(x, y-1, count+1);  //å·¦
 			}
-			if(b<n-1 && maze[a][b+1]==0) {
-				bool_maze(a, b+1, count+1);  //ÓÒ
+			if(y<n-1 && maze[x][y+1]==0) {
+				bool_maze(x, y+1, count+1);  //å³
 			}
-			//»ØËÝ£¬»Ö¸´Ô­À´µÄ×´Ì¬£¬
-			maze[a][b]=0;//¼´´Ó¸Ã´¦ÏàÁÚµØ·½³ö·¢Ã»ÓÐÕÒµ½ÍêÕûÂ·¾¶£¬ËùÒÔ½«Ö®Ç°×ß¹ýµÄÕâÌõÂ·¾¶×´Ì¬»Ö¸´
+			//å›žæº¯ï¼Œæ¢å¤åŽŸæ¥çš„çŠ¶æ€ï¼Œ
+			maze[x][y]=0;//å³ä»Žè¯¥å¤„ç›¸é‚»åœ°æ–¹å‡ºå‘æ²¡æœ‰æ‰¾åˆ°å®Œæ•´è·¯å¾„ï¼Œæ‰€ä»¥å°†ä¹‹å‰èµ°è¿‡çš„è¿™æ¡è·¯å¾„çŠ¶æ€æ¢å¤
 		}
 	}
 
